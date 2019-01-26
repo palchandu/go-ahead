@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <h3>List of user's</h3>
+        <app-employee-count (countRadioButtonSelectionChanged)="onEmployeeCountRadioButtonChange($event)" (getMessage)="welcomeMessage($event)" [all]="getTotalEmployeeCount()" [male]=" getMaleEmployeeCount()" [female]="getFemaleEmployeeCount()"></app-employee-count>
+        <div class="clearfix set_manage"></div>
+        <table class="table table-bordered">
+        <thead>
+            <tr><th>Username</th><th>Password</th><th>Gender</th></tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let user of users">
+            <tr  *ngIf="selectedEmployeeCountRadioButton=='All'
+            || selectedEmployeeCountRadioButton==user.gender">
+            <td>{{user.UserName | loopingCustom:user.ID}}</td>
+            <td>{{user.Password | uppercase}}</td>
+            <td>{{user.gender}}</td>
+            </tr>
+            <tr *ngIf="!users || users.length==0">
+            <td colspan="2">No Record Found.</td>
+            </tr>
+            </ng-container>
+        </tbody>
+        </table>
+        <p>{{message}}</p>
+    </div>
+    <div class="row">
+        <h4>Employee Post's</h4>
+        <ul>
+            <li *ngFor="let post of posts">{{post.title}}</li>
+        </ul>
+    </div>
+</div>
+

@@ -1,0 +1,10 @@
+.add_class{
+    background-color: brown;
+    border: 1px chartreuse;
+}
+
+#div1{
+    width: 100%;
+    height: 200px;
+    border: 1px seagreen solid;
+}

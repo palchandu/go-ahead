@@ -1,0 +1,28 @@
+<div class="col-sm-12 col-md-12 col-lg-12" [ngStyle]="addStyle()">
+  <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12" id="div1" [class.add_class]='addClass'>
+
+      </div>
+  </div>
+  <button [style.background]="color_green" (click)="onClick()" class='colorClass'>Add</button>
+  <button [style.background]="button_color" (click)="removeAction()" class='colorClass'>Remove</button>
+</div>
+<div class="col-sm-12 col-md-12 col-lg-12" [ngStyle]="addOtherStyle()">
+  <h3 [style.color]="heading_color">Form Field Event</h3>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input [style.border-color]="inputColor" value="{{inputVal|uppercase}}" (keyup)="showMessage($event)" type="text" id="username" name="username" class="form-control" placeholder="Enter Username">
+  </div>
+  <div class="form-group">
+    <select class="form-control" id="select_color" name="select_color" (change)="addColor($event)">
+      <option value="red">Red</option>
+      <option value="green">Green</option>
+      <option value="blue">Blue</option>
+    </select>
+  </div>
+  <div class="form-group">
+      <label for="user_email">Email</label>
+      <input [(ngModel)]="email" type="text" id="user_email" name="user_email" class="form-control" >
+  </div>
+  <h3>Your Email is : {{email}}</h3>
+</div>
